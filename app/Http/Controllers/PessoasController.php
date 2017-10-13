@@ -30,14 +30,14 @@ class PessoasController extends Controller {
     public function store(Request $request)
     {
         // criando o metodo estatico
-        //$pessoa = Pessoa::create($request->all());
+        $pessoa = Pessoa::create($request->all());
         if ($request->modelo && $request->placa){
             $carro = new Carro();
             $carro->modelo = $request->modelo;
             $carro->placa = $request->placa;
-            //$carro->pessoa_id = $pessoa->id;
+            $carro->pessoa_id = $pessoa->id;
             $this->carros_controllers->store($carro);
         }
-        //return redirect("/pessoas")->with("message","Pessoa criada com sucesso!");
+        return redirect("/pessoas")->with("message","Pessoa criada com sucesso!");
     }
 }

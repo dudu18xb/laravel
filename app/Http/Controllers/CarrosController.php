@@ -9,6 +9,10 @@ class CarrosController extends Controller
 {
     public function store(Carro $carro)
     {
-        var_dump($carro->modelo, $carro->placa);
+        try{
+            $carro->save();
+        } catch (\Exception $e){
+            return "Erro: " . $e->getMessage();
+        }
     }
 }
