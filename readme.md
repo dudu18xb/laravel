@@ -21,7 +21,8 @@
 * Entre no phpmyadmin, e crie um banco de dados chamado carros.
 * Navege pelo terminal até a pasta raiz deste projeto e digite o seguinte comando no terminal para subir as migrações no banco de dados.
   > php artisan migrate 
-* Se você instalou o PHP localmente e você gostaria de usar o servidor de desenvolvimento incorporado do PHP para atender seu aplicativo, você pode usar o servecomando Artisan. Este comando iniciará um servidor de desenvolvimento em :http://localhost:8000 para a tela de "Bem Vindo" e a Raiz do que foi desenvolvido é http://localhost:8000/pessoas 
+* Se você instalou o PHP localmente e você gostaria de usar o servidor de desenvolvimento incorporado do PHP para atender seu aplicativo, você pode usar o servecomando Artisan. Este comando iniciará um servidor de desenvolvimento em :http://localhost:8000 para a tela de "Bem Vindo" e a Raiz do que foi desenvolvido é http://localhost:8000/pessoas
+>php artisan serve
 
 ### Como criar um projeto novo ?
 * Na documentação do [Laravel](https://laravel.com/docs/5.4) existe uma documentação muito completa sobre o Laravel, para criar um novo projeto digite o seguinte comando no terminal:
