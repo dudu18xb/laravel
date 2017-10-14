@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class CarrosController extends Controller
 {
-    public function store(Carro $carro)
+    public function store(Carro $modelo)
     {
         try{
-            $carro->save();
+            $modelo->save();
         } catch (\Exception $e){
             return "Erro: " . $e->getMessage();
         }
+
     }
 }

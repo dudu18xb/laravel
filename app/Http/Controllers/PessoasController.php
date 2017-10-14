@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Carro;
 use App\Pessoa;
 use Illuminate\Http\Request;
 
 class PessoasController extends Controller {
-    // criando uma injeção de dependencia
+    private $carros_controller;
 
-    private $carros_controllers;
-    public function __construct(CarrosController $carro_controlador)
+    public function __construct(CarrosController $carros_controller)
     {
-        $this->carros_controllers = $carro_controlador;
+        $this->carros_controller = $carros_controller;
     }
 
     public function index()
@@ -31,13 +31,14 @@ class PessoasController extends Controller {
     {
         // criando o metodo estatico
         $pessoa = Pessoa::create($request->all());
-        if ($request->modelo && $request->placa){
+        if($request->modelo && $request->placa){
             $carro = new Carro();
             $carro->modelo = $request->modelo;
             $carro->placa = $request->placa;
             $carro->pessoa_id = $pessoa->id;
-            $this->carros_controllers->store($carro);
+            $this->carros_controller->store($carro);
         }
+
         return redirect("/pessoas")->with("message","Pessoa criada com sucesso!");
     }
 }
