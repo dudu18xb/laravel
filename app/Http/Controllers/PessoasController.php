@@ -46,6 +46,24 @@ class PessoasController extends Controller {
         return redirect("/pessoas")->with("message","Pessoa criada com sucesso!");
     }
 
+    // criando um metodo a view para a exclusão
+    public function excluirView($id)
+    {
+        return view('pessoas.delete',[
+            'pessoa' => $this->getPessoa($id)
+        ]);
+    }
+
+    // criando o metodo para a apagar o registro
+    public function destroy($id)
+    {
+        // excluindo o registro
+        $this->getPessoa($id)->delete();
+        // redirecionando para a tela de listagem novamente
+        return redirect("pessoas")->with("success","Registro Exluido");
+    }
+
+    // chamando a view para efetuar a edição
     public function editarView($id)
     {
         // chamando a view para editar com passando o ID/EDITAR
@@ -62,6 +80,7 @@ class PessoasController extends Controller {
         return redirect('/pessoas');
     }
 
+    // criada esse metodo para facilitar os testes unitários da pessoa
     protected function getPessoa($id)
     {
         return $this->pessoa->find($id);

@@ -5,6 +5,7 @@
         .btn-action{
             padding:5px;
             float: right;
+            margin-left: 5px;
         }
     </style>
     <div>
@@ -15,6 +16,9 @@
                         {{ $pessoa->nome }}
                         <a href="{{ url("/pessoas/$pessoa->id/editar") }}" class="btn btn-xs btn-primary btn-action">
                             <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a href="{{ url("/pessoas/$pessoa->id/excluir") }}" class="btn btn-xs btn-danger btn-action">
+                            <i class="glyphicon glyphicon-trash"></i>
                         </a>
                     </div>
                     <div class="panel-body">
